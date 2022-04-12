@@ -1,0 +1,292 @@
+{% extends 'login/base.html' %}
+{% load static %}
+
+{% block title %} 首页 {% endblock %}
+
+{% block css %}
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="main-banner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-text">
+                    <h1>职库</h1>
+                    <h2>--基于数据挖掘和用户画像的智能职业规划系统</h2>
+                    <p>
+                        就业难？难就业？随着高校招生规模的不断扩大，毕业生数量也在逐年增加，人才的种类不断丰富，而就业岗位却不能得到合理的分配，您是否还没有职业规划的观念，是否存在毕业等于失业的顾虑？
+                        在这里，我们为您提供“规划—学习—就业“一体化服务，让您择业有方向，工作有能力。
+                    </p>
+                    <div class="banner-btn">
+                        <a href="#" class="default-btn active">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="banner-img">
+                    <img src="../../static/picture/home1.png" alt="Banner Images">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-shape">
+        <div class="shape1">
+            <img src="../../static/picture/1.png" alt="shape">
+        </div>
+        <div class="shape2">
+            <img src="../../static/picture/2.png" alt="shape">
+        </div>
+        <div class="shape3">
+            <img src="../../static/picture/3.png" alt="shape">
+        </div>
+        <div class="shape4">
+            <img src="../../static/picture/4.png" alt="shape">
+        </div>
+        <div class="shape5">
+            <img src="../../static/picture/5.png" alt="shape">
+        </div>
+    </div>
+</div>
+<div class="about-area pt-100 pb-70">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-xxl-6 ps-0">
+                <div class="about-img">
+                    <img src="../../static/picture/12.png" alt="About Images">
+                </div>
+            </div>
+            <div class="col-lg-7 col-xxl-6">
+                <div class="about-content about-width">
+                    <h2>论坛交流</h2>
+                    <p>
+                        方便用户进行交流学习，更有业界成功人士分享自己职业的心得体会和对所在职业内的前景发表见解，加深用户对各个职业的认识，以达到更好服务用户的效果。同时我们平台的答疑交流服务，
+                        便是针对部分用户专业难解的问题而产，通过少许的付费便可以和职场大牛进行交流，消除疑惑。 定期推送推文与心理测试 我们将通过推文和心理测试，根据用户的访谈与回复等数据，
+                        观察用户行为，分析用户心理，达到对用户心理乃至全方面呵护的效果。
+                    </p>
+                    <div class="about-btn">
+                        <a href="#" class="default-btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="faq-bg">
+    <div class="faq-bg-into pt-100 pb-70">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="faq-content">
+                        <h2>职业测评</h2>
+                        <p>
+                            依据埃德加施恩(EdgarSchein)的职业锚测试、DISC个性测验、霍兰德职业兴趣测试、九型人格测试与MBTI人格测试理论，
+                            生成属于您的独一无二的职业报告。 科学，个性化分析出您的优缺点生成一份职业报告，并附上所适合的工作建议。
+                        </p>
+                    </div>
+                    <div class="faq-accordion">
+                        <ul class="accordion">
+                            <li class="accordion-item">
+                                <a class="accordion-title" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    DISC个性测验
+                                </a>
+                                <div class="accordion-content">
+                                    <p>
+                                        是国外企业广泛应用的一种 人格测验 ，用于测查、评估和帮助人们改善其行为方式、人际关系、工作绩效、团队合作、领导风格等。DISC个性测验由24组描述 个性特质 的形容词构成，
+                                        每组包含四个形容词，这些形容词是根据 支配性（D）、影响性（I）、服从性（C）、 稳定性（S） 和四个测量维度以及一些干扰维度来选择的。</p>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <a class="accordion-title" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    MBTI 职业性格测试
+                                </a>
+                                <div class="accordion-content">
+                                    <p>
+                                        国际最为流行的职业人格评估工具，作为一种对个性的判断和分析，是一个理论模型，从纷繁复杂的个性特征中，归纳提炼出 4 个关键要素 —— 动力、信息收集、决策方式、生活方式，进行分析判断，
+                                        从而把不同个性的人区别开来。
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <a class="accordion-title" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    霍兰德职业兴趣测试
+                                </a>
+                                <div class="accordion-content">
+                                    <p>
+                                        约翰·霍兰德(JohnHolland)是美国约翰·霍普金斯大学心理学教授，美国著名的职业指导专家。于1959年提出了具有广泛社会影响的职业兴趣理论。他认为人的人格类型、兴趣与职业密切相关，
+                                        兴趣是人们活动的巨大动力，凡是具有职业兴趣的职业，都可以提高人们的积极性，促使人们积极地、愉快地从事该职业，且职业兴趣与人格之间存在很高的相关性。
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <a class="accordion-title active" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    职业报告
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="faq-img-2">
+                        <img src="../../static/picture/23.jpg" alt="fAQ Images">
+                    </div>
+                    <div class="faq-content-text">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6 col-md-4">
+                                <div class="single-counter">
+                                    <h3 class="color-black"><span class="counter">5057</span></h3>
+                                    <p class="color-black font-size">成功项目案例</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-md-4">
+                                <div class="single-counter">
+                                    <h3 class="color-black"><span class="counter">4276</span>+</h3>
+                                    <p class="color-black font-size">合作客户数</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12 col-md-4">
+                                <div class="single-counter">
+                                    <h3 class="color-black"><span class="counter">25</span>+</h3>
+                                    <p class="color-black font-size">累计好评</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="blog-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>大学课程网站推荐</h2>
+        </div>
+        <div class="row pt-45">
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="../static/picture/12.jpg" alt="Blog Images">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tag">
+                            <a href="#"><span>艺术与音乐</span></a>
+                        </div>
+                        <a href="#">
+                            <h3>Dave Conservatoire—一个完全免费的音乐学习网站。</h3>
+                        </a>
+                        <a href="http://www.daveconservatoire.org/" class="read-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="../static/picture/22.jpg" alt="Blog Images">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tag">
+                            <a href="#"><span>数据科学与工程</span></a>
+                        </div>
+                        <a href="#">
+                            <h3>Big Data University—教你如何做大数据分析。</h3>
+                        </a>
+                        <a href="Big Data University" class="read-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="../static/picture/32.jpg" alt="Blog Images">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tag">
+                            <a href="#"><span>网页设计与开发</span></a>
+                        </div>
+                        <a href="#">
+                            <h3>Skillcrush — 提供职业网页设计与开发课程。</h3>
+                        </a>
+                        <a href="https://skillcrush.com/" class="read-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="../static/picture/52.jpg" alt="Blog Images">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tag">
+                            <a href="#"><span>综合</span></a>
+                        </div>
+                        <a href="#">
+                            <h3>SchoolTube — 面向中小学生，称有5 0 万视频</h3>
+                        </a>
+                        <a href="https://www.schooltube.com/" class="read-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="../static/picture/42.jpg" alt="Blog Images">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tag">
+                            <a href="#"><span>生活</span></a>
+                        </div>
+                        <a href="#">
+                            <h3>Udemy—通过教学视频教你生活和工作中的实用技能，需要付费。</h3>
+                        </a>
+                        <a href="https://www.udenny.com/" class="read-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="../static/picture/62.jpg" alt="Blog Images">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tag">
+                            <a href="#"><span>IT与编程类</span></a>
+                        </div>
+                        <a href="#">
+                            <h3>Udacity—职业编程学习的不二之选，提供微学位。</h3>
+                        </a>
+                        <a href="https://www.udacity.com/" class="read-btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}

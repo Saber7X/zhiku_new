@@ -1,0 +1,13 @@
+{% extends 'login/manage.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <h1>{{ data.title }}</h1>
+{#        <section class="mb-5">#}
+            <p class="fs-5 mb-4">{{ data.content }}</p>
+{#        </section>#}
+        <img src="/media/{{ data.img }}">
+    </div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'login/base.html' %}
+{% load static %}
+
+{% block title %} 个人信息页 {% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container clearfix" style="margin-top: 20px;">
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color:transparent;font-weight: bold;">
+                    个人中心
+                </div>
+                <div class="list-group" style="border-radius: 0">
+                    <div>
+                        {% if form.user == request.session.info %}
+                            <p class="list-group-item">我的资料</p>
+                        {% else %}
+                            <p class="list-group-item">{{ form.user }}的资料</p>
+                        {% endif %}
+
+                        {% if form.user == request.session.info %}
+                            <a href="#" class="list-group-item">修改密码</a>
+                        {% endif %}
+
+                        {% if form.user == request.session.info %}
+                            <a href="/person/luntan/{{ form.user }}/" class="list-group-item">我的文章</a>
+                        {% else %}
+                            <a href="/person/luntan/{{ form.user }}/" class="list-group-item">{{ form.user }}的资料</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="panel panel-default">
+                {% if form.user == request.session.info %}
+                    <div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i> 我的资料</div>
+                {% else %}
+                    <div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i>{{ form.user }}的资料</div>
+                {% endif %}
+                <div class="panel-body">
+
+                    {% if form.user == request.session.info %}
+                        <a href="/person/edit/{{ request.session.info }}">
+                            编辑资料
+                        </a>
+                    {% endif %}
+
+                    <hr>
+                    <label>生日：{{ form.birth }}</label>
+                    <hr>
+                    <label>学校：{{ form.school }}</label>
+                    <hr>
+                    <label>公司：{{ form.company }}</label>
+                    <hr>
+                    <label>职业或专业：{{ form.profession }}</label>
+                    <hr>
+                    <label>住址：{{ form.address }}</label>
+                    <hr>
+                    <label>其他：{{ form.about }}</label>
+                    {#                    {% for field in form %}#}
+                    {#                        <div class="form-group">#}
+                    {#                            <label>{{ field.label }}</label>#}
+                    {#                            <div class="row">#}
+                    {#                                <div class="col-xs-7">#}
+                    {#                                    {{ field }}#}
+                    {#                                    <span class="error-msg">{{ field.errors.0 }}</span>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    {% endfor %}#}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

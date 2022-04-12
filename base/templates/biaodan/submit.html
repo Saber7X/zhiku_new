@@ -1,0 +1,17 @@
+{% extends "login/manage.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron" >
+        <h2>职业规划报告</h2>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {% for i in form_diaocha %}
+        <label >{{ i.label }}</label>
+        <span style="height: 50px">{{ i }}</span>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary"> 提 交</button>
+    </form>
+</div>
+{% endblock %}

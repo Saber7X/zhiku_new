@@ -1,0 +1,14 @@
+{% extends "login/manage.html" %}
+
+{% block content %}
+
+    <div class="jumbotron" align="center">
+        <h1>职业规划</h1>
+        {% for field in form_obj_1 %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+            </div>
+        {% endfor %}
+        <p><a href="{% url 'form' %}" class="btn btn-primary btn-large">生成word并下载</a></p>
+    </div>
+{% endblock %}

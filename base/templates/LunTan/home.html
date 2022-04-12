@@ -1,0 +1,70 @@
+{% extends 'login/base.html' %}
+
+{% block content %}
+    <br>
+    <br>
+
+
+
+    <!-- alt="..." on <img> element -->
+    <div class="container">
+
+        <div>
+            <h1>{{ tip }}
+                <span class="bx-pull-right menu-btn">
+                        <a class="seo-btn" href="/luntan_add/">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            发帖子
+                        </a>
+                    </span>
+            </h1>
+
+            <br>
+            <br>
+            <br>
+            {% for i in queryset %}
+                <div class="article-item item-tp-4" data-id="15500189">
+                    <div class="item-holder">
+                        <div class="article-content">
+                            <div class="article-left-block">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="caption">
+                                                    <h1><a href="/luntan_read/{{ i.id }}/">{{ i.title }}</a></h1>
+                                                    <div>
+                                                        <a href="/person/{{ i.user }}/">作者: {{ i.user }}</a>
+                                                    </div>
+                                                    <p>   {{ i.jianjie }}</p>
+                                                    <p>浏览 {{ i.Count }} 次</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <img src="/media/{{ i.img }}"
+                                                     style="width:200px ;height:110px ! important; float: right">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <br>
+            {% endfor %}
+        </div>
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+        {#        <h1>历史记录</h1>#}
+        {#        {% for i in his %}#}
+        {#            <li>{{ i.content }}</li>#}
+        {#        {% endfor %}#}
+    </div>
+
+
+
+
+{% endblock %}

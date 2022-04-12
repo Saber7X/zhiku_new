@@ -1,0 +1,48 @@
+{% extends 'login/manage.html' %}
+
+{% block content %}
+
+    <!-- alt="..." on <img> element -->
+    <div class="container">
+
+        <div>
+            <h1>管理文章</h1>
+            {% for i in data %}
+                <div class="article-item item-tp-4" data-id="15500189">
+                    <div class="item-holder">
+                        <div class="article-content">
+                            <div class="article-left-block">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-6">
+                                                <div class="caption">
+                                                    <h1><a href="/luntan_read/{{ i.id }}/">{{ i.title }}</a></h1>
+                                                    <p>   {{ i.jianjie }}</p>
+                                                    <p>浏览 {{ i.Count }} 次</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-6">
+                                                <img src="/media/{{ i.img }}" style="height: 100px;">
+                                            </div>
+                                            <div>
+                                                <a href="/luntan_delete/{{ i.id }}">删除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <br>
+            {% endfor %}
+        </div>
+        <ul class="pagination">
+            {{ page_string }}
+        </ul>
+    </div>
+
+
+{% endblock %}
