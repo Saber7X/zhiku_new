@@ -1,0 +1,45 @@
+{% extends 'login/base.html' %}
+
+{% block content %}
+    <br>
+    <br>
+
+
+
+    <!-- alt="..." on <img> element -->
+    <div class="container">
+
+        <div>
+            <a class="seo-btn" href="/gongsi_add/">
+                发帖子
+            </a>
+            <br>
+            {% for i in queryset %}
+                <div class="terms-conditions-area ptb-100">
+                    <div class="container">
+                        <div class="single-content">
+                            <h3>{{ i.title }}</h3>
+                            <p>
+                                {{ i.jianjie }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <hr>
+            {% endfor %}
+        </div>
+
+        <div >
+                <ul class="pagination">
+                    {{ page_string }}
+                </ul>
+        {#        <h1>历史记录</h1>#}
+        {#        {% for i in his %}#}
+        {#            <li>{{ i.content }}</li>#}
+        {#        {% endfor %}#}
+        </div>
+    </div>
+{% endblock %}

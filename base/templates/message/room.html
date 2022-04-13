@@ -1,10 +1,14 @@
-{% extends 'login/manage.html' %}
+{% extends 'login/base.html' %}
 {% load static %}
 {% block title %} 聊天室{{ room_name }} {% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/account.css' %}">
 {% endblock %}
 {% block content %}
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <textarea id="chat-log" cols="100" rows="20"></textarea><br>
     <input id="chat-message-input" type="text" size="100"><br>

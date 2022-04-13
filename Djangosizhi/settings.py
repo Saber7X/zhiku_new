@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-3dp_d*+z!#gd4fk+8-cgm^&&s(pn@nkibs6-@%gk#^+^@8qh2b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 ASGI_APPLICATION = 'Djangosizhi.asgi.application'
@@ -43,8 +43,8 @@ CHANNEL_LAYERS = {
 }
 
 INSTALLED_APPS = [
-    'base',
     'channels',
+    'base',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -7,6 +7,7 @@ from django.urls import path, include
 
 from base import views
 from base.library import viewes
+from base.gongsi import vieww
 from base.luntan import view
 from django.urls import path, re_path
 from django.views.static import serve
@@ -44,4 +45,11 @@ urlpatterns = [
     path('wenjuan/disc/', wenjuanview.Disc),
     path('wenjuan/mbti/', wenjuanview.Mbti),
     path('about/', wenjuanview.about),
+
+    path('gongsi_add/', vieww.gongsi_add),
+    path('gongsi_list/', vieww.gongsi_list),
+    path('gongsi_list/jianjie/', vieww.gongsi_list_jianjie),
+    path('gongsi_read/<int:nid>/', vieww.gongsi_read),
+    path('gongsi_delete/<int:nid>/', vieww.gongsi_delete),
+    path('gongsi_list/admin/', vieww.gongsi_admin),
 ]

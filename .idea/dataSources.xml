@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="db" uuid="2f651db8-e898-4f58-aae6-77f9dd7652de">
-      <driver-ref>ee91d5c4-758a-4c44-9447-7c2628123a15</driver-ref>
+      <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\DELL\Desktop\Djangosizhi\db.sqlite3</jdbc-url>
@@ -14,7 +14,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="db [2]" uuid="9760aa64-43c3-44cd-bb93-227d8529906d">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>d00c567b-5243-4840-8c67-578913fe61cb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\saber\Desktop\123456\db.sqlite3</jdbc-url>
@@ -22,6 +22,18 @@
       <libraries>
         <library>
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="db [3]" uuid="b88cb605-c735-4c84-a002-8b72102261b7">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\DELL\Desktop\123\123456\db.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.34.0/sqlite-jdbc-3.34.0.jar</url>
         </library>
       </libraries>
     </data-source>

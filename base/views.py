@@ -108,6 +108,7 @@ def index1(request):
 def person(request, name):
     if request.method == 'GET':
         # print(name)
+
         form = models.Person1.objects.filter(user=name).first()
         return render(request, 'person.html', {'form': form})
 
@@ -124,11 +125,13 @@ def person_edit(request, name):
 
     return render(request, 'person_edit.html', {'form': form})
 
+
 def person_luntan(request, name):
     form = models.LunTan.objects.filter(user=name)
     print(name)
     print(form)
     return render(request, 'person_luntan.html', {'form': form, 'name': name})
+
 
 def chat(request):
     return render(request, 'message/chat.html')
@@ -150,7 +153,7 @@ def submit(request):
         # print(form_diaocha)
         form_diaocha.save()
         filename = 'test.docx'  # 所生成的word文档需要以.docx结尾，文档格式需要
-        filepath = 'C:\\Users\\DELL\\Djangosizhi'
+        filepath = 'C:\\Users\\DELL\\Desktop\\123\\123456'
         template_path = os.getcwd() + '\\guihua.docx'
         template = DocxTemplate(template_path)
         shouye = {

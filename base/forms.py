@@ -12,7 +12,7 @@ from base import models
 class LoginForm(BootStrapModelForm):
     class Meta:
         model = models.UserInfo
-        fields = {'username', 'password'}
+        fields = ['username', 'password']
 
     def clean_password(self):
         pwd = self.cleaned_data['password']
@@ -93,7 +93,7 @@ class User(BootStrapModelForm):
 class personForm(BootStrapModelForm):
     class Meta:
         model = models.Person1
-        fields = {'birth', 'school', 'company', 'profession', 'address', 'about'}
+        fields = ['birth', 'school', 'company', 'profession', 'address', 'about']
 
 
 class diaochaModel(BootStrapModelForm):

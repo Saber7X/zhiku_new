@@ -33,6 +33,16 @@ class LunTan(models.Model):
     img = models.FileField(verbose_name="图片", max_length=128, upload_to='luntan/', default="")
 
 
+class gongsi(models.Model):
+    user = models.OneToOneField(UserInfo, on_delete=models.CASCADE, null=True, blank=True)
+
+    title = models.CharField(verbose_name="企业", max_length=30, default="")
+    jianjie = models.TextField(verbose_name="企业简介", max_length=1550, default="")
+    # 本质上数据库也是CharField，自动保存数据。
+    Count = models.IntegerField(verbose_name="浏览次数", default=0)
+    # img = models.FileField(verbose_name="图片", max_length=128, upload_to='luntan/', default="")
+
+
 class History(models.Model):
     # user = models.OneToOneField(UserInfo, on_delete=models.CASCADE, null=True, blank=True)
     user = models.CharField(verbose_name="yh", max_length=30, default="", null=True, blank=True)

@@ -11,12 +11,21 @@
 
         <div>
             <h1>{{ tip }}
+                {% if  request.session.info %}
                 <span class="bx-pull-right menu-btn">
                         <a class="seo-btn" href="/luntan_add/">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             发帖子
                         </a>
                     </span>
+                {% else %}
+                    <span class="bx-pull-right menu-btn">
+                        <a class="seo-btn" href="/sign/">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            发帖子
+                        </a>
+                    </span>
+                {% endif %}
             </h1>
 
             <br>

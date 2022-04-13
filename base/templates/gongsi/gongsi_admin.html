@@ -1,0 +1,29 @@
+{% extends 'login/base.html' %}
+
+{% block content %}
+
+    <!-- alt="..." on <img> element -->
+    <br>
+    <br>
+    <div class="container">
+
+        <div>
+            {% for i in data %}
+                <div class="caption">
+                    <h1>{{ i.title }}</h1>
+                    <p> {{ i.jianjie }}</p>
+                    <a href="/gongsi_delete/{{ i.id }}">删除</a>
+                </div>
+
+                <hr>
+                <br>
+                <br>
+            {% endfor %}
+        </div>
+        {#        <ul class="pagination">#}
+        {#            {{ page_string }}#}
+        {#        </ul>#}
+    </div>
+
+
+{% endblock %}
