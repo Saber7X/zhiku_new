@@ -9,6 +9,9 @@
 
 {% block content %}
 
+<br>
+<br>
+<br>
     <div class="container clearfix" style="margin-top: 20px;">
         <div class="col-sm-3">
             <div class="panel panel-default">
@@ -41,7 +44,8 @@
                 {% if form.user == request.session.info %}
                     <div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i> 我的资料</div>
                 {% else %}
-                    <div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i>{{ form.user }}的资料</div>
+                    <div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i>{{ form.user }}的资料
+                    </div>
                 {% endif %}
                 <div class="panel-body">
 
@@ -63,17 +67,11 @@
                     <label>住址：{{ form.address }}</label>
                     <hr>
                     <label>其他：{{ form.about }}</label>
-                    {#                    {% for field in form %}#}
-                    {#                        <div class="form-group">#}
-                    {#                            <label>{{ field.label }}</label>#}
-                    {#                            <div class="row">#}
-                    {#                                <div class="col-xs-7">#}
-                    {#                                    {{ field }}#}
-                    {#                                    <span class="error-msg">{{ field.errors.0 }}</span>#}
-                    {#                                </div>#}
-                    {#                            </div>#}
-                    {#                        </div>#}
-                    {#                    {% endfor %}#}
+                    <hr>
+                    <label>词云图：
+                        <img src="/media/CiYun/{{ form.user }}cy1.png">
+                        <img src="/media/CiYun/{{ form.user }}cy2.png">
+                    </label>
                 </div>
             </div>
         </div>

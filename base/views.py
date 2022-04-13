@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.utils.datetime_safe import datetime
 from docxtpl import DocxTemplate
 from base import models, forms
+from base.CiYun.test import ciyun
 from base.forms import LoginForm, RegisterModelForm, personForm, diaochaModel
 from base.models import UserInfo
 
@@ -78,6 +79,8 @@ def register(request):
         print(form.cleaned_data)
         n = form.cleaned_data['username']
         models.Person1.objects.create(user=n)
+        models.Mbti.objects.create(user=n)
+        models.Disc.objects.create(user=n)
         return JsonResponse({'status': True, 'data': '/sign/'})
 
     return JsonResponse({'status': False, 'error': form.errors})
@@ -108,10 +111,13 @@ def index1(request):
 def person(request, name):
     if request.method == 'GET':
         # print(name)
-
+        n = request.session['info']
+        a = models.Mbti.objects.filter(user=n).first().ans
+        b = models.Disc.objects.filter(user=n).first().ans
+        c = a + b
+        ciyun(c,n)
         form = models.Person1.objects.filter(user=name).first()
         return render(request, 'person.html', {'form': form})
-
 
 def person_edit(request, name):
     ins = models.Person1.objects.filter(user=name).first()
