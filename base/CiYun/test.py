@@ -36,7 +36,7 @@ def ciyun(text, username):
     wc = WordCloud(
         background_color='white',
         mask=img_array,
-        font_path="msyh.ttc",
+        font_path='simsun.ttc',
         width=800,
         height=400,
         scale=3,
@@ -65,7 +65,7 @@ def ciyun(text, username):
     wc = WordCloud(
         background_color='white',
         mask=img_array,
-        font_path="msyh.ttc",
+        font_path='simsun.ttc',
         width=800,
         height=400,
         scale=3,

@@ -27,7 +27,7 @@ def luntan_list(request):
     data_dict = {}
     search_data = request.POST.get('data', "")
     if search_data:
-        data_dict["content__contains"] = search_data
+        data_dict["title__contains"] = search_data
         models.History.objects.create(content=search_data)
     queryset = models.LunTan.objects.filter(**data_dict).order_by('-Count')
     page_object = Pagination(request, queryset)

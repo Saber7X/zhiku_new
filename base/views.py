@@ -46,7 +46,10 @@ def sign(request):
             request.session["info"] = username.username
             request.session['is_login'] = True
             request.session['user_id'] = username.id
-
+            if not models.Mbti.objects.filter(user=request.session["info"]).exists():
+                models.Mbti.objects.create(user=request.session["info"])
+            if not models.Disc.objects.filter(user=request.session["info"]).exists():
+                models.Disc.objects.create(user=request.session["info"])
             # return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
             return redirect('/')
             # return render(request, 'index1.html', locals())
@@ -112,12 +115,16 @@ def person(request, name):
     if request.method == 'GET':
         # print(name)
         n = request.session['info']
+        if not models.Mbti.objects.filter(user=n).exists():
+            models.Mbti.objects.create(user=n)
+        if not models.Disc.objects.filter(user=n).exists():
+            models.Disc.objects.create(user=n)
         a = models.Mbti.objects.filter(user=n).first().ans
         b = models.Disc.objects.filter(user=n).first().ans
         c = a + b
-        ciyun(c,n)
         form = models.Person1.objects.filter(user=name).first()
-        return render(request, 'person.html', {'form': form})
+        return render(request, 'person.html', {'form': form, 'c': c})
+
 
 def person_edit(request, name):
     ins = models.Person1.objects.filter(user=name).first()

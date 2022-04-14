@@ -68,10 +68,14 @@
                     <hr>
                     <label>其他：{{ form.about }}</label>
                     <hr>
-                    <label>词云图：
-                        <img src="/media/CiYun/{{ form.user }}cy1.png">
-                        <img src="/media/CiYun/{{ form.user }}cy2.png">
-                    </label>
+                    {% if c != "nullnull" %}
+                        <label>词云报告：
+                            <img src="/media/CiYun/{{ form.user }}cy1.png">
+                            <img src="/media/CiYun/{{ form.user }}cy2.png">
+                        </label>
+                    {% else %}
+                        <label>词云报告：暂无</label>
+                    {% endif %}
                 </div>
             </div>
         </div>
