@@ -1,13 +1,53 @@
 {% extends 'login/base.html' %}
 
 {% block content %}
-
     <div class="container">
-
-        <h1>{{ data.title }}</h1>
-{#        <section class="mb-5">#}
-            <p class="fs-5 mb-4">{{ data.content }}</p>
-{#        </section>#}
-        <img src="/media/{{ data.img }}">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog-dtls-content">
+                    <div class="blog-dtls-img" style="width:800px;">
+                        <img src="/media/{{ data.img }}" alt="Blog Images">
+                    </div>
+                    <div class="blog-text">
+                        <h2>{{ data.title }}</h2>
+                        <blockquote class="boxicon-quote">
+                            <p>
+                                {{ data.jianjie }}
+                            </p>
+                        </blockquote>
+                        <p>
+                            {{ data.content }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <h1>
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    &nbsp;&nbsp;热门推荐
+                </h1>
+                <br>
+                <br>
+                {% for i in hot %}
+                    <div class="post-wrap">
+                        <article class="item">
+                            <a href="/luntan_read/{{ i.id }}/" class="thumb">
+                                <img src="/media/{{ i.img }}" style="width:100px ;height:100px">
+                            </a>
+                            <a href="/person/{{ i.user }}/"> &nbsp;&nbsp;&nbsp;作者: {{ i.user }}</a>
+                            <br>
+                            <b style="color: #0a001f">
+                                <a href="/luntan_read/{{ i.id }}/" style="color: #0a001f">
+                                    {{ i.title }}
+                                </a>
+                            </b>
+                        </article>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -33,7 +33,7 @@
                         {% if form.user == request.session.info %}
                             <a href="/person/luntan/{{ form.user }}/" class="list-group-item">我的文章</a>
                         {% else %}
-                            <a href="/person/luntan/{{ form.user }}/" class="list-group-item">{{ form.user }}的资料</a>
+                            <a href="/person/luntan/{{ form.user }}/" class="list-group-item">{{ form.user }}的文章</a>
                         {% endif %}
                     </div>
                 </div>
@@ -68,14 +68,10 @@
                     <hr>
                     <label>其他：{{ form.about }}</label>
                     <hr>
-                    {% if c != "nullnull" %}
-                        <label>词云报告：
-                            <img src="/media/CiYun/{{ form.user }}cy1.png">
-                            <img src="/media/CiYun/{{ form.user }}cy2.png">
-                        </label>
-                    {% else %}
-                        <label>词云报告：暂无</label>
-                    {% endif %}
+                    <label>词云报告：
+                        <img src="/media/CiYun/{{ form.user }}cy1.png">
+                        <img src="/media/CiYun/{{ form.user }}cy2.png">
+                    </label>
                 </div>
             </div>
         </div>

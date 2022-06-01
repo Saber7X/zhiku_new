@@ -63,6 +63,11 @@
 
     <link rel="stylesheet" href="/static/css/responsive.css">
     {% block css %}{% endblock %}
+    <style>
+    .sticky-nav .main-nav {
+        background-color: #707db6;
+    }
+    </style>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <!--******************************导航条****************************-->
@@ -70,116 +75,115 @@
 <div class="preloader">
     <div class="preloader-wave"></div>
 </div>
-<div class="main-nav">
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-light ">
-            <a class="navbar-brand" href="">
-                <img src="{% static 'image/b-logo1.png' %}" alt="Logo">
-            </a>
-{#            <a class="navbar-brand-sticky" href="">#}
-{#                <img src="{% static 'image/d-logo1.png' %}" alt="Logo">#}
-{#            </a>#}
-            <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item">
-                        <a href="{% url 'index1' %}" class="nav-link">
-                            首页
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/about/" class="nav-link">
-                            关于
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/luntan_list/kecheng/" class="nav-link">
-                            课程
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/luntan_list/" class="nav-link">
-                            论坛
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/gongsi_list/" class="nav-link">
-                            企业
-                        </a>
-                    </li>
-                    {% if  request.session.info %}
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            问卷
-                            <i class='bx bxs-chevron-right'></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a href="/wenjuan/disc/" class="nav-link">
-                                    DISC问卷
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/wenjuan/mbti/" class="nav-link">
-                                    MBTI问卷
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/submit/" class="nav-link">
-                                    职业规划报告
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            消息
-                            <i class='bx bxs-chevron-right'></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item">
-                                <a href="{% url 'chat' %}" class="nav-link"><!--消息下拉菜单1-->
-                                    聊天室
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    {% else %}
-                    {% endif %}
-                    <li class="navbar-item">
-                        <form class="form-inline my-2 my-lg-0" action="/luntan_list/" method="post">
-                            {% csrf_token %}
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search"
-                                   aria-label="Search" name="data" value={{ search_data }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                 class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                            </svg>
-                            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="搜索">
-                        </form>
-                    </li>
-{#                    <li>#}
-{#                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="搜索">#}
-{#                    </li>#}
 
-                    <li class="nav-item">
+<!-- 手机适配 -->
+<div class="navbar-area">
+
+    <div class="mobile-nav">
+        <a href="index1.html" class="logo">
+            <img src="{% static 'image/logo111.png' %}" alt="Logo">
+        </a>
+    </div>
+
+    <div class="main-nav top-nav" style="height:80px" >
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light ">
+                <a class="navbar-brand-sticky" href="/">
+                    <img src="{% static 'image/113.png' %}" alt="Logo">
+                </a>
+                <a class="navbar-brand" href="/">
+                    <img src="{% static 'image/logo111.png' %}" alt="Logo">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'index1' %}" class="nav-link">
+                                首页
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/luntan_list/kecheng/" class="nav-link">
+                                课程
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/luntan_list/" class="nav-link">
+                                论坛
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/gongsi_list/" class="nav-link">
+                                企业
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about/" class="nav-link">
+                                关于
+                            </a>
+                        </li>
                         {% if  request.session.info %}
-                            <a href="#" class="seo-btn" id="btn_showlogin">{{ request.session.info }}</a>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                问卷
+                                <i class='bx bxs-chevron-right'></i>
+                            </a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
-                                    <a href="/person/{{ request.session.info }}/" class="nav-link">个人信息</a>
+                                    <a href="/wenjuan/disc/" class="nav-link">
+                                        DISC问卷
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="{% url 'logout' %}" class="nav-link">退 出</a>
+                                <li class="nav-item">
+                                    <a href="/wenjuan/mbti/" class="nav-link">
+                                        MBTI问卷
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/submit/" class="nav-link">
+                                        职业规划报告
+                                    </a>
                                 </li>
                             </ul>
+                        </li>
                         {% else %}
-                            <a href="{% url 'sign' %}" class="btn seo-btn" id="btn_showlogin">登录/注册</a>
-                        {% endif %}
 
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                        {% endif %}
+                        <sub class="navbar-item">
+                            <form class="form-inline my-2 my-lg-0" action="/luntan_list/" method="post">
+                                {% csrf_token %}
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                                    aria-label="Search" name="data" value={{ search_data }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                </svg>
+                                <input class="btn btn-outline-success my-2 my-sm-0"  style="color:rgb(16, 17, 17)" type="submit" value="搜索">
+                            </form>
+                        </sub>
+                        <li class="nav-item">
+                            {% if  request.session.info %}
+                                <a href="#" class="nav-item" id="btn_showlogin">{{ request.session.info }}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a href="/person/{{ request.session.info }}/" class="nav-link">个人信息</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'logout' %}" class="nav-link">退 出</a>
+                                    </li>
+                                </ul>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="{% url 'sign' %}" class="nav-link">
+                                        登录 / 注册
+                                    </a>
+                                </li>
+                            {% endif %}
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
 </div>
 <!--******************************导航条结束****************************-->
@@ -199,7 +203,7 @@
                     <div class="footer-single">
                         <div class="footer-single-content">
                             <a href="#">
-                                <img src="../../static/image/b-logo1.png" alt="Logo">
+                                <img src="{% static 'image/112.png' %}" alt="Logo">
                             </a>
                             <p>
                                 "职库"，一个集职业规划、学习推荐、论坛问答、就业指导于一体的互动型应用，
@@ -255,7 +259,7 @@
                     <div class="footer-list ml-50">
                         <h3>微信公众号</h3>
                         <ul>
-                            <img src="../../static/image/gong.jpg">
+                            <img src="{% static 'image/gong.jpg' %}">
                         </ul>
                     </div>
                 </div>
@@ -267,7 +271,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="bottom-text text-center">
-                        <p>Copyright &copy; 2022 Career-Plan All rights reserved.</p>
+                        <a>© 2022 江苏霖承科技有限公司 版权所有  |</a>
+                        <a href="https://beian.miit.gov.cn/#/Integrated/index">ICP备案号: 苏ICP备2021052480号</a>
                     </div>
                 </div>
             </div>

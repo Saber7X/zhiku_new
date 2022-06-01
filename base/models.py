@@ -25,6 +25,11 @@ class LunTan(models.Model):
         (2, '课程'),
     )
     leixing = models.SmallIntegerField(verbose_name="类型", choices=leixing_choices, default=1)
+    leixing_choices2 = (  # 新建选择字段
+        (1, '转载链接'),
+        (2, '原创'),
+    )
+    shuxing = models.SmallIntegerField(verbose_name="属性", choices=leixing_choices2)
     jianjie = models.TextField(verbose_name="简介", max_length=1550, default="")
     # 本质上数据库也是CharField，自动保存数据。
 

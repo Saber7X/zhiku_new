@@ -30,6 +30,8 @@ def luntan_list(request):
         data_dict["title__contains"] = search_data
         models.History.objects.create(content=search_data)
     queryset = models.LunTan.objects.filter(**data_dict).order_by('-Count')
+    hot = models.LunTan.objects.all()[0:5]
+
     page_object = Pagination(request, queryset)
     his = models.History.objects.all()
     context = {
@@ -37,7 +39,8 @@ def luntan_list(request):
         "page_string": page_object.html(),  # 生成页码
         "search_data": search_data,
         "tip": "推荐总榜",
-        "his": his
+        "his": his,
+        "hot": hot
     }
     return render(request, 'LunTan/home.html', context)
 
@@ -67,14 +70,17 @@ def luntan_list_kecheng(request):
         models.History.objects.creat(content=search_data)
     queryset = models.LunTan.objects.filter(**data_dict, leixing=2).order_by('-Count')
     page_object = Pagination(request, queryset)
+    hot = queryset[0:5]
     context = {
         "queryset": page_object.page_queryset,  # 分完页的数据
         "page_string": page_object.html(),  # 生成页码
         "search_data": search_data,
         "tip": "课程推荐",
         "luntan": "active",
-        "his": his
+        "his": his,
+        "hot": hot
     }
+    
     return render(request, 'LunTan/home.html', context)
 
 
@@ -103,9 +109,12 @@ def luntan_read(request, nid):
     models.LunTan.objects.filter(id=nid).update(Count=a)
 
     data = models.LunTan.objects.filter(id=nid).first()
-    lianjie = data.content
-    return redirect(lianjie)
-    # return render(request, 'LunTan/luntan_read.html', {"data": data})
+    if data.shuxing == 1:
+        lianjie = data.content
+        return redirect(lianjie)
+    else:
+        hot = models.LunTan.objects.all()[0:5]
+        return render(request, 'LunTan/luntan_read.html', {"data": data, "hot":hot})
 
 def luntan_admin(request):
     # # models.LunTan.objects.create()

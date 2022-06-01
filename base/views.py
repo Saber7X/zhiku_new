@@ -33,30 +33,35 @@ def sign(request):
         return render(request, 'sign.html', {'form': form})
 
     form = LoginForm(data=request.POST)
+
     if form.is_valid():
+        print(form.cleaned_data)
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
         try:
-            username = models.UserInfo.objects.get(username=username)
+            userinfo = models.UserInfo.objects.get(username=username)
         except:
             message = '用户不存在！'
+            form.add_error("username", "用户不存在！")
             return render(request, 'sign.html', locals())
 
-        if username.password == password:
-            request.session["info"] = username.username
+        if userinfo.password == password:
+            request.session["info"] = userinfo.username
             request.session['is_login'] = True
-            request.session['user_id'] = username.id
-            if not models.Mbti.objects.filter(user=request.session["info"]).exists():
-                models.Mbti.objects.create(user=request.session["info"])
-            if not models.Disc.objects.filter(user=request.session["info"]).exists():
-                models.Disc.objects.create(user=request.session["info"])
+            request.session['user_id'] = userinfo.id
+
             # return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
             return redirect('/')
             # return render(request, 'index1.html', locals())
         else:
-            message = '密码不正确！'
-            return render(request, 'index.html', locals())
-
+            message = ''
+            form.add_error("password", "密码不正确！")
+            return render(request, 'sign.html', locals())
+    s = models.Mbti.objects.filter(user=request.session['info']).first()
+    print(s)
+    if s == None:
+        models.Mbti.objects.create(user=request.session['info'])
+        models.Disc.objects.create(user=request.session['info'])
     login_form = forms.LoginForm()
     return render(request, 'sign.html', locals())
 
@@ -113,17 +118,27 @@ def index1(request):
 
 def person(request, name):
     if request.method == 'GET':
-        # print(name)
-        n = request.session['info']
-        if not models.Mbti.objects.filter(user=n).exists():
-            models.Mbti.objects.create(user=n)
-        if not models.Disc.objects.filter(user=n).exists():
-            models.Disc.objects.create(user=n)
-        a = models.Mbti.objects.filter(user=n).first().ans
-        b = models.Disc.objects.filter(user=n).first().ans
-        c = a + b
+
+        # print(request.session)
+        # n = request.session['info']
+        a = models.Mbti.objects.filter(user=name).first()
+        if a != None:
+            a=models.Mbti.objects.filter(user=name).first().ans
+
+        b = models.Disc.objects.filter(user=name).first()
+        if b != None:
+            b = models.Disc.objects.filter(user=name).first().ans
+        c = ""
+        if a == None and b == None:
+            c = "null,null"
+        else:
+            c = a + b
+
+        ciyun(c, name)
+        if models.Person1.objects.filter(user=name).first() == None:
+            models.Person1.objects.create(user=name)
         form = models.Person1.objects.filter(user=name).first()
-        return render(request, 'person.html', {'form': form, 'c': c})
+        return render(request, 'person.html', {'form': form})
 
 
 def person_edit(request, name):
@@ -141,8 +156,8 @@ def person_edit(request, name):
 
 def person_luntan(request, name):
     form = models.LunTan.objects.filter(user=name)
-    print(name)
-    print(form)
+    # print(name)
+    # print(form)
     return render(request, 'person_luntan.html', {'form': form, 'name': name})
 
 

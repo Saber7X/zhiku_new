@@ -12,7 +12,7 @@
         <div>
             <h1>{{ tip }}
                 {% if  request.session.info %}
-                <span class="bx-pull-right menu-btn">
+                    <span class="bx-pull-right menu-btn">
                         <a class="seo-btn" href="/luntan_add/">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             发帖子
@@ -31,38 +31,76 @@
             <br>
             <br>
             <br>
-            {% for i in queryset %}
-                <div class="article-item item-tp-4" data-id="15500189">
-                    <div class="item-holder">
-                        <div class="article-content">
-                            <div class="article-left-block">
-                                <div class="row">
-                                    <div class="col-sm-9">
-                                        <div class="row">
-                                            <div class="col-xs-8 col-sm-6">
-                                                <div class="caption">
-                                                    <h1><a href="/luntan_read/{{ i.id }}/">{{ i.title }}</a></h1>
-                                                    <div>
-                                                        <a href="/person/{{ i.user }}/">作者: {{ i.user }}</a>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        {% for i in queryset %}
+                            <div class="article-item item-tp-4" data-id="15500189">
+                                <div class="item-holder">
+                                    <div class="article-content">
+                                        <div class="article-left-block">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    <div class="row">
+                                                        <div class="col-xs-8 col-sm-6">
+                                                            <div class="caption">
+                                                                <h1><a href="/luntan_read/{{ i.id }}/">{{ i.title }}</a>
+                                                                </h1>
+                                                                <div>
+                                                                    <a href="/person/{{ i.user }}/">作者: {{ i.user }}</a>
+                                                                </div>
+                                                                <p>   {{ i.jianjie }}</p>
+                                                                <p>浏览 {{ i.Count }} 次</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4 col-sm-6">
+                                                            <img src="/media/{{ i.img }}"
+                                                                 style="width:200px ;height:110px ! important; float: right">
+                                                        </div>
                                                     </div>
-                                                    <p>   {{ i.jianjie }}</p>
-                                                    <p>浏览 {{ i.Count }} 次</p>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-4 col-sm-6">
-                                                <img src="/media/{{ i.img }}"
-                                                     style="width:200px ;height:110px ! important; float: right">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <hr>
+                            <br>
+                        {% endfor %}
+                    </div>
+                    <div class="col-lg-4">
+                        <h1>
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                            &nbsp;&nbsp;热门推荐
+                        </h1>
+                        <br>
+                        <br>
+                        {% for i in hot %}
+                            <div class="post-wrap">
+                                <article class="item">
+                                    <a href="/luntan_read/{{ i.id }}/" class="thumb">
+                                        <img src="/media/{{ i.img }}" style="width:100px ;height:60px">
+                                    </a>
+                                    <br>
+                                    <b style="color: #0a001f">
+                                        <a href="/luntan_read/{{ i.id }}/" style="color: #0a001f">
+                                            {{ i.title }}
+                                        </a>
+                                    </b>
+                                    <br>
+                                    <a href="/person/{{ i.user }}/">作者: {{ i.user }}</a>
+                                    
+                                    
+                                </article>
+                            </div>
+                            <br>
+                            <hr>
+                            <br>
+                        {% endfor %}
                     </div>
                 </div>
-                <hr>
-                <br>
-            {% endfor %}
+            </div>
         </div>
         <ul class="pagination">
             {{ page_string }}
@@ -72,8 +110,4 @@
         {#            <li>{{ i.content }}</li>#}
         {#        {% endfor %}#}
     </div>
-
-
-
-
 {% endblock %}
